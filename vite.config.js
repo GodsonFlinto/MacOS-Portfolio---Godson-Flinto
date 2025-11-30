@@ -8,7 +8,9 @@ const root = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  
+  build: {
+    chunkSizeWarningLimit: 1000, // Increase to 1000 kB
+  },
   resolve: {
     alias: {
       '#components': resolve(root, 'src/components'),
