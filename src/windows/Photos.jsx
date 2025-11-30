@@ -2,11 +2,11 @@ import { WindowControls } from "#components";
 import { gallery, photosLinks } from "#constants";
 import WindowWrapper from "#hoc/WindowWrapper";
 import useWindowStore from "#store/window";
-import { FileType, icons, Mail, Search } from "lucide-react";
+import { Mail, Search } from "lucide-react";
 import React from "react";
 
 const Photos = () => {
-  const { openWindow } = useWindowStore();
+  const { openWindow, focusWindow } = useWindowStore();
   return (
     <>
       <div id="window-header">
@@ -37,7 +37,7 @@ const Photos = () => {
             {gallery.map(({ id, img }) => (
               <li
                 key={id}
-                onClick={() =>
+                onClick={() => {
                   openWindow("imgfile", {
                     id,
                     name: "Gallery image",
@@ -46,7 +46,8 @@ const Photos = () => {
                     fileType: "img",
                     imageUrl: img,
                   })
-                }
+                  focusWindow("imgfile")
+                }}
               >
                 <img src={img} alt={`Gallery image ${id}`} />
               </li>

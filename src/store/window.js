@@ -24,10 +24,13 @@ const useWindowStore = create(
         win.data = null;
     }),
 
-    focusWindow: (windowKey) => set((state) => {
+    focusWindow: (windowKey) =>
+      set((state) => {
         const win = state.windows[windowKey];
-        win.zIndex = state.nextZIndex++;
-    })
+        if (!win) return;
+        win.zIndex = state.nextZIndex;
+        state.nextZIndex += 1;
+      }),
   }))
 );
 
