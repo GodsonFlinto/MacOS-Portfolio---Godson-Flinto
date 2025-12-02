@@ -182,6 +182,10 @@ const photosLinks = [
 
 const gallery = [
   {
+    id: 4,
+    img: "/images/car.jpg",
+  },
+  {
     id: 1,
     img: "/images/cricket.jpg",
   },
@@ -193,10 +197,7 @@ const gallery = [
     id: 2,
     img: "/images/team.jpg",
   },
-  {
-    id: 4,
-    img: "/images/car.jpg",
-  },
+  
 ];
 
 export {
